@@ -71,10 +71,37 @@ class ViewController: UIViewController {
         model.addToNewValue(digit: "9")
         LabelDisplay.text = model.providedValue
     }
+    
+    @IBAction func zeroPressed(_ sender: Any) {
+        model.addToNewValue(digit: "0")
+        LabelDisplay.text = model.providedValue
+    }
    
     @IBAction func multiply(_ sender: Any) {
       model.multiply()
     }
     
+    @IBAction func divide(_ sender: Any) {
+        model.divide()
+    }
+    //provided value is not changing to computed value
+    @IBAction func subtract(_ sender: Any) {
+        
+        model.subtract()
+    }
+    
+    @IBAction func add(_ sender: Any) {
+        model.add()
+    }
+    @IBAction func clear(_ sender: Any) {
+        model.clear()
+    }
+    
+    @IBAction func equals(_ sender: Any) {
+        model.equals()
+        if model.computedValue != nil {
+            LabelDisplay.text = String(format: "%g", model.computedValue!)
+        }
+    }
 }
 

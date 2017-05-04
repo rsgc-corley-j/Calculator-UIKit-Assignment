@@ -51,6 +51,19 @@ class Calculator {
      
      This means: what the current computed value is, what the new value provided by the user is, and whether to perform an operation on the computed value and provided value.
      */
+    func add(){
+    operation = Operation.addition
+        updateState()
+    }
+    
+    func subtract(){
+        
+        operation = Operation.subtraction
+        updateState()
+    }
+    
+    
+    
     func updateState() {
         
         if computedValue == nil {
