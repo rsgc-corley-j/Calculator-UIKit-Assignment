@@ -134,6 +134,12 @@ class Calculator {
     
     func plusMinus() {
      providedValue = "-" + providedValue
+        
+        if computedValue == nil{
+        }else{
+            computedValue = -1 * computedValue!
+        }
+
     
     }
     func percentage(){
