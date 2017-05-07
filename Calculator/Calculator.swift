@@ -112,6 +112,8 @@ class Calculator {
             computedValue = computedValue! + Double(providedValue)!
         } else if operation == Operation.subtraction{
             computedValue = computedValue! - Double(providedValue)!
+        } else if operation == Operation.percentage{
+            computedValue = 0.01 * Double(providedValue)!
         }
     
         // The operation selected has been performed, so get ready to receive new operation
@@ -129,6 +131,27 @@ class Calculator {
         computedValue = Double(providedValue)
         providedValue = ""
     }
+    
+    func plusMinus() {
+     providedValue = "-" + providedValue
+    
+    }
+    func percentage(){
+        
+        operation = Operation.percentage
+
+    }
+    
+    
+    func decimal(){
+    providedValue = "." + providedValue
+    }
+
+    
+//    func percentage{
+//    providedValue = "
+//    
+//    }
     
     /**
      Resets the operation, provided value, and computed value.

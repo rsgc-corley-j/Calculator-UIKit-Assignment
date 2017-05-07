@@ -95,6 +95,18 @@ class ViewController: UIViewController {
     }
     @IBAction func clear(_ sender: Any) {
         model.clear()
+        LabelDisplay.text = model.providedValue
+    }
+    @IBAction func plusMinus(_ sender: Any) {
+    model.plusMinus()
+    }
+    
+    @IBAction func percentage(_ sender: Any) {
+    model.percentage()
+    }
+    
+    @IBAction func decimal(_ sender: Any) {
+        
     }
     
     @IBAction func equals(_ sender: Any) {
