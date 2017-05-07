@@ -145,6 +145,7 @@ class Calculator {
     
     func decimal(){
     providedValue = "." + providedValue
+    
     }
 
     

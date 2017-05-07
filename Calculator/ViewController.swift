@@ -99,6 +99,7 @@ class ViewController: UIViewController {
     }
     @IBAction func plusMinus(_ sender: Any) {
     model.plusMinus()
+    LabelDisplay.text = model.providedValue
     }
     
     @IBAction func percentage(_ sender: Any) {
@@ -106,7 +107,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func decimal(_ sender: Any) {
-        
+    model.decimal()
+    LabelDisplay.text = model.providedValue
     }
     
     @IBAction func equals(_ sender: Any) {
