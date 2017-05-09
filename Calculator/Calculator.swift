@@ -19,7 +19,7 @@ class Calculator {
     
     // MARK: Method(s) a.k.a. Function(s)
     func addToNewValue(digit : String) {
-
+        
         providedValue = providedValue + digit
         
     }
@@ -52,7 +52,7 @@ class Calculator {
      This means: what the current computed value is, what the new value provided by the user is, and whether to perform an operation on the computed value and provided value.
      */
     func add(){
-    operation = Operation.addition
+        operation = Operation.addition
         updateState()
     }
     
@@ -89,7 +89,7 @@ class Calculator {
                 // 2. When in this branch, a new provided value has been given.
                 
                 // So, perform the operation!
-                equals()    
+                equals()
             }
             
         }
@@ -115,7 +115,7 @@ class Calculator {
         } else if operation == Operation.percentage{
             computedValue = 0.01 * Double(providedValue)!
         }
-    
+        
         // The operation selected has been performed, so get ready to receive new operation
         // and new value
         operation = nil
@@ -131,34 +131,40 @@ class Calculator {
         computedValue = Double(providedValue)
         providedValue = ""
     }
-    
-    func plusMinus() {
-     providedValue = "-" + providedValue
+    func makeComputedValueProvidedValue(){
+        providedValue = String(describing: computedValue!)
+        computedValue = nil
         
-        if computedValue == nil{
-        }else{
-            computedValue = -1 * computedValue!
-        }
-
+    }
     
+    func plusMinus(){
+        
+        if providedValue == ""{
+            makeComputedValueProvidedValue()
+            providedValue = "-" + providedValue
+            makeProvidedValueComputedValue()
+        }else{
+            providedValue = "-" + providedValue
+        }
+        
     }
     func percentage(){
         
         operation = Operation.percentage
-
+        
     }
     
     
     func decimal(){
-    providedValue = providedValue + "."
-    
+        providedValue = providedValue + "."
+        
     }
-
     
-//    func percentage{
-//    providedValue = "
-//    
-//    }
+    
+    //    func percentage{
+    //    providedValue = "
+    //
+    //    }
     
     /**
      Resets the operation, provided value, and computed value.
