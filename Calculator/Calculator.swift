@@ -103,6 +103,8 @@ class Calculator {
      */
     func equals() {
         
+
+        
         // Check operation type
         if operation == Operation.multiplication {
             computedValue = computedValue! * Double(providedValue)!
@@ -113,7 +115,11 @@ class Calculator {
         } else if operation == Operation.subtraction{
             computedValue = computedValue! - Double(providedValue)!
         } else if operation == Operation.percentage{
+            if computedValue == nil{
             computedValue = 0.01 * Double(providedValue)!
+            }else{
+            computedValue = 0.01 * computedValue!
+            }
         }
         
         // The operation selected has been performed, so get ready to receive new operation
@@ -121,6 +127,7 @@ class Calculator {
         operation = nil
         providedValue = ""
         
+
     }
     
     /**
@@ -149,9 +156,14 @@ class Calculator {
         
     }
     func percentage(){
-        
+      if providedValue == "" && computedValue == nil{
+      }else{
         operation = Operation.percentage
-        
+        }
+//        if computedValue == nil{
+//            computedValue = 0.01 * Double(providedValue)!
+//        }else{
+//            computedValue = 0.01 * computedValue!
     }
     
     

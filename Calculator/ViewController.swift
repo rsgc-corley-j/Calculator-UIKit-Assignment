@@ -113,17 +113,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func percentage(_ sender: Any) {
-        
-        if model.computedValue == nil{
-            
-        }else{
+
             model.percentage()
-        }
+        equals("")
     }
     
     @IBAction func decimal(_ sender: Any) {
         model.decimal()
         LabelDisplay.text = model.providedValue
+        equals("")
     }
     
     @IBAction func equals(_ sender: Any) {
