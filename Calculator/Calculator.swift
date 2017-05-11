@@ -51,11 +51,12 @@ class Calculator {
      
      This means: what the current computed value is, what the new value provided by the user is, and whether to perform an operation on the computed value and provided value.
      */
+    //turns operation too addition, and creates new value
     func add(){
         operation = Operation.addition
         updateState()
     }
-    
+    //turns operation too subtraction, and creates new value
     func subtract(){
         
         operation = Operation.subtraction
@@ -138,6 +139,7 @@ class Calculator {
         computedValue = Double(providedValue)
         providedValue = ""
     }
+    //does the exact opposite task as the previous. i used this to avoid changing a computed value to negative. i can simply use this and makeprovidedvaluecomputedvalue to standardize my way to change the pos/neg value.
     func makeComputedValueProvidedValue(){
         providedValue = String(describing: computedValue!)
         computedValue = nil
@@ -156,7 +158,9 @@ class Calculator {
         }
         
     }
+    
     func percentage(){
+        //checks if both providedvalue and computedvalue have no value with boolean operation
       if providedValue == "" && computedValue == nil{
       }else{
         operation = Operation.percentage
@@ -166,6 +170,7 @@ class Calculator {
     
     
     func decimal(){
+        //simply puts in a "." for decimal
         providedValue = providedValue + "."
         
     }
