@@ -145,12 +145,13 @@ class Calculator {
     }
     
     func plusMinus(){
-        
+
         if providedValue == ""{
             makeComputedValueProvidedValue()
             providedValue = "-" + providedValue
             makeProvidedValueComputedValue()
-        }else{
+        }
+        else{
             providedValue = "-" + providedValue
         }
         
@@ -160,10 +161,7 @@ class Calculator {
       }else{
         operation = Operation.percentage
         }
-//        if computedValue == nil{
-//            computedValue = 0.01 * Double(providedValue)!
-//        }else{
-//            computedValue = 0.01 * computedValue!
+
     }
     
     

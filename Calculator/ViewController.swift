@@ -101,12 +101,14 @@ class ViewController: UIViewController {
         //    model.plusMinus()
         
         if model.computedValue == nil{
-            
+            model.plusMinus()
+            LabelDisplay.text = model.providedValue
         }else{
             model.plusMinus()
             if model.providedValue == ""{
                 LabelDisplay.text = String(describing: model.computedValue!)
             }else{
+                model.plusMinus()
                 LabelDisplay.text = model.providedValue
             }
         }
@@ -121,7 +123,6 @@ class ViewController: UIViewController {
     @IBAction func decimal(_ sender: Any) {
         model.decimal()
         LabelDisplay.text = model.providedValue
-
     }
     
     @IBAction func equals(_ sender: Any) {
