@@ -121,7 +121,7 @@ class ViewController: UIViewController {
     @IBAction func decimal(_ sender: Any) {
         model.decimal()
         LabelDisplay.text = model.providedValue
-        equals("")
+
     }
     
     @IBAction func equals(_ sender: Any) {
