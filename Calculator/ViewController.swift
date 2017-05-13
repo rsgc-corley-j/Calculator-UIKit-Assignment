@@ -118,7 +118,9 @@ class ViewController: UIViewController {
     @IBAction func percentage(_ sender: Any) {
 
             model.percentage()
-        //equals("")
+     // equals("")
+        LabelDisplay.text = model.providedValue
+        LabelDisplay.text = String(describing: model.computedValue)
     }
     
     @IBAction func decimal(_ sender: Any) {

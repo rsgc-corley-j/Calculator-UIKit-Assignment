@@ -105,10 +105,10 @@ class Calculator {
      */
     func equals() {
         
-//        if Double(providedValue) == nil {
+        if Double(providedValue) == nil {
             
- //       }else{
-            // Check operation type
+        }else{
+  //           Check operation type
             if operation == Operation.multiplication {
                 computedValue = computedValue! * Double(providedValue)!
             } else if operation == Operation.division {
@@ -125,13 +125,12 @@ class Calculator {
                 }else{
                     makeProvidedValueOverflow()
                     overflow = 0.01 * overflow
-                    makeOverflowProvidedValue()
                 }
                 
                 
                 
                 
-//            }
+           }
         }
         
         // The operation selected has been performed, so get ready to receive new operation
@@ -189,20 +188,28 @@ class Calculator {
         operation = Operation.percentage
             equals()
         operation = Operation.addition
+                makeOverflowProvidedValue()
         }else if operation == Operation.subtraction{
                 operation = Operation.percentage
                 equals()
                 operation = Operation.subtraction
+                makeOverflowProvidedValue()
             }else if operation == Operation.multiplication{
                 operation = Operation.percentage
                 equals()
                 operation = Operation.multiplication
+                makeOverflowProvidedValue()
             }else if operation == Operation.division{
                 operation = Operation.percentage
                 equals()
                 operation = Operation.division
+                makeOverflowProvidedValue()
+            }else{
+                operation = Operation.percentage
+                equals()
             }
-
+            
+            //makeOverflowProvidedValue()
 
         
     }
