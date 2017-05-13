@@ -14,6 +14,7 @@ class Calculator {
     var providedValue : String = ""
     var computedValue : Double? = nil
     var operation : Operation? = nil
+    var overflow : Double = 0
     
     // MARK: Initializer(s)
     
@@ -107,35 +108,38 @@ class Calculator {
         if Double(providedValue) == nil {
             
         }else{
-        // Check operation type
-        if operation == Operation.multiplication {
-            computedValue = computedValue! * Double(providedValue)!
-        } else if operation == Operation.division {
-            computedValue = computedValue! / Double(providedValue)!
-        } else if operation == Operation.addition{
-            computedValue = computedValue! + Double(providedValue)!
-        } else if operation == Operation.subtraction{
-            computedValue = computedValue! - Double(providedValue)!
-        } else if operation == Operation.percentage{
-            if computedValue == nil{
-            computedValue = 0.01 * Double(providedValue)!
-            }else if providedValue == ""{
-            computedValue = 0.01 * computedValue!
-           // Double(providedValue)! = 0.01 * Double(providedValue)!
+            // Check operation type
+            if operation == Operation.multiplication {
+                computedValue = computedValue! * Double(providedValue)!
+            } else if operation == Operation.division {
+                computedValue = computedValue! / Double(providedValue)!
+            } else if operation == Operation.addition{
+                computedValue = computedValue! + Double(providedValue)!
+            } else if operation == Operation.subtraction{
+                computedValue = computedValue! - Double(providedValue)!
+            } else if operation == Operation.percentage{
+                if computedValue == nil{
+                    computedValue = 0.01 * Double(providedValue)!
+                }else if providedValue == ""{
+                    computedValue = 0.01 * computedValue!
+                }else{
+                    makeProvidedValueOverflow()
+                    overflow = 0.01 * overflow
+                }
+                
+                
+                
+                
             }
-            
-            
-
-        }
         }
         
         // The operation selected has been performed, so get ready to receive new operation
         // and new value
-        if operation == Operation.percentage{
-        }else{
-        providedValue = ""
-        }
-operation = nil
+//        if operation == Operation.percentage{
+//        }else{
+            providedValue = ""
+//        }
+        operation = nil
     }
     
     /**
@@ -146,15 +150,25 @@ operation = nil
         computedValue = Double(providedValue)
         providedValue = ""
     }
+    
     //does the exact opposite task as the previous. i used this to avoid changing a computed value to negative. i can simply use this and makeprovidedvaluecomputedvalue to standardize my way to change the pos/neg value.
     func makeComputedValueProvidedValue(){
         providedValue = String(describing: computedValue!)
         computedValue = nil
         
     }
+    func makeProvidedValueOverflow(){
+        overflow = Double(providedValue)!
+        providedValue = ""
+    }
+    
+    func makeOverflowProvidedValue(){
+        providedValue = String(overflow)
+        overflow = 0
+    }
     
     func plusMinus(){
-
+        
         if providedValue == ""{
             makeComputedValueProvidedValue()
             providedValue = "-" + providedValue
@@ -167,12 +181,13 @@ operation = nil
     }
     
     func percentage(){
-        //checks if both providedvalue and computedvalue have no value with boolean operation
-      if providedValue == "" && computedValue == nil{
-     }else{
-        operation = Operation.percentage
+//        checks if both providedvalue and computedvalue have no value with boolean operation
+        if providedValue == "" && computedValue == nil{
+        }else{
+            operation = Operation.percentage
         }
 
+        
     }
     
     
