@@ -107,7 +107,7 @@ class ViewController: UIViewController {
             
             if model.providedValue == ""{
                 model.plusMinus()
-                LabelDisplay.text = String(describing: model.computedValue!)
+//                LabelDisplay.text = String(describing: model.computedValue!)
             }else{
                 model.plusMinus()
                 LabelDisplay.text = model.providedValue

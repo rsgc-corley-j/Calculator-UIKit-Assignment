@@ -104,8 +104,9 @@ class Calculator {
      */
     func equals() {
         
-
-        
+        if Double(providedValue) == nil {
+            
+        }else{
         // Check operation type
         if operation == Operation.multiplication {
             computedValue = computedValue! * Double(providedValue)!
@@ -118,17 +119,23 @@ class Calculator {
         } else if operation == Operation.percentage{
             if computedValue == nil{
             computedValue = 0.01 * Double(providedValue)!
-            }else{
+            }else if providedValue == ""{
             computedValue = 0.01 * computedValue!
+           // Double(providedValue)! = 0.01 * Double(providedValue)!
             }
+            
+            
+
+        }
         }
         
         // The operation selected has been performed, so get ready to receive new operation
         // and new value
-        operation = nil
+        if operation == Operation.percentage{
+        }else{
         providedValue = ""
-        
-
+        }
+operation = nil
     }
     
     /**
@@ -162,7 +169,7 @@ class Calculator {
     func percentage(){
         //checks if both providedvalue and computedvalue have no value with boolean operation
       if providedValue == "" && computedValue == nil{
-      }else{
+     }else{
         operation = Operation.percentage
         }
 
