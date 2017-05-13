@@ -105,9 +105,9 @@ class Calculator {
      */
     func equals() {
         
-        if Double(providedValue) == nil {
+//        if Double(providedValue) == nil {
             
-        }else{
+ //       }else{
             // Check operation type
             if operation == Operation.multiplication {
                 computedValue = computedValue! * Double(providedValue)!
@@ -125,12 +125,13 @@ class Calculator {
                 }else{
                     makeProvidedValueOverflow()
                     overflow = 0.01 * overflow
+                    makeOverflowProvidedValue()
                 }
                 
                 
                 
                 
-            }
+//            }
         }
         
         // The operation selected has been performed, so get ready to receive new operation
@@ -184,12 +185,28 @@ class Calculator {
 //        checks if both providedvalue and computedvalue have no value with boolean operation
         if providedValue == "" && computedValue == nil{
         }else{
-            operation = Operation.percentage
-        }
+            if operation == Operation.addition{
+        operation = Operation.percentage
+            equals()
+        operation = Operation.addition
+        }else if operation == Operation.subtraction{
+                operation = Operation.percentage
+                equals()
+                operation = Operation.subtraction
+            }else if operation == Operation.multiplication{
+                operation = Operation.percentage
+                equals()
+                operation = Operation.multiplication
+            }else if operation == Operation.division{
+                operation = Operation.percentage
+                equals()
+                operation = Operation.division
+            }
+
 
         
     }
-    
+    }
     
     func decimal(){
         //simply puts in a "." for decimal

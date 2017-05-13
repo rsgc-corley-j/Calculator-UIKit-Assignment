@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     @IBAction func percentage(_ sender: Any) {
 
             model.percentage()
-        equals("")
+        //equals("")
     }
     
     @IBAction func decimal(_ sender: Any) {
