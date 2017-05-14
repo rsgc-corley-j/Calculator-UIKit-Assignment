@@ -15,6 +15,7 @@ class Calculator {
     var computedValue : Double? = nil
     var operation : Operation? = nil
     var overflow : Double = 0
+    //overflow is a variable for equations and a place to store something if need be
     
     // MARK: Initializer(s)
     
@@ -159,6 +160,8 @@ class Calculator {
         computedValue = nil
         }
     }
+    
+    //these functions are simply to turn the computed value back and forth from computevalue to overflow to do equations. Useful in some instances, and testing
     func makeProvidedValueOverflow(){
         overflow = Double(providedValue)!
         providedValue = ""
@@ -170,21 +173,16 @@ class Calculator {
     }
     
     func plusMinus(){
+    
         
-//        if providedValue == ""{
-
-//            makeComputedValueProvidedValue()
-//            providedValue = "-" + providedValue
-//            makeProvidedValueComputedValue()
-//        }
-//        else{
-//            providedValue = "-" + providedValue
-            overflow = -1 * overflow
-//        }
+        // this section uses to overflow variable to do calculations before returning it to the code
         if providedValue == ""{
+            if computedValue == nil {
+            }else{
             overflow = computedValue!
             overflow = -1 * overflow
             computedValue = overflow
+            }
         }else{
             overflow = Double(providedValue)!
             overflow = -1 * overflow
@@ -222,7 +220,7 @@ class Calculator {
                 equals()
             }
             
-            //makeOverflowProvidedValue()
+          //simply checks the operation so that it can turn the number into a percentage before it returns it to the before stated operation
 
         
     }
