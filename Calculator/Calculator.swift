@@ -105,9 +105,9 @@ class Calculator {
      */
     func equals() {
         
-        if Double(providedValue) == nil {
+//        if Double(providedValue) == nil {
             
-        }else{
+ //       }else{
   //           Check operation type
             if operation == Operation.multiplication {
                 computedValue = computedValue! * Double(providedValue)!
@@ -130,7 +130,7 @@ class Calculator {
                 
                 
                 
-           }
+//           }
         }
         
         // The operation selected has been performed, so get ready to receive new operation
@@ -153,9 +153,11 @@ class Calculator {
     
     //does the exact opposite task as the previous. i used this to avoid changing a computed value to negative. i can simply use this and makeprovidedvaluecomputedvalue to standardize my way to change the pos/neg value.
     func makeComputedValueProvidedValue(){
+        if computedValue == nil{
+        }else{
         providedValue = String(describing: computedValue!)
         computedValue = nil
-        
+        }
     }
     func makeProvidedValueOverflow(){
         overflow = Double(providedValue)!
@@ -169,15 +171,26 @@ class Calculator {
     
     func plusMinus(){
         
+//        if providedValue == ""{
+
+//            makeComputedValueProvidedValue()
+//            providedValue = "-" + providedValue
+//            makeProvidedValueComputedValue()
+//        }
+//        else{
+//            providedValue = "-" + providedValue
+            overflow = -1 * overflow
+//        }
         if providedValue == ""{
-            makeComputedValueProvidedValue()
-            providedValue = "-" + providedValue
-            makeProvidedValueComputedValue()
+            overflow = computedValue!
+            overflow = -1 * overflow
+            computedValue = overflow
+        }else{
+            overflow = Double(providedValue)!
+            overflow = -1 * overflow
+            providedValue = String(overflow)
         }
-        else{
-            providedValue = "-" + providedValue
-        }
-        
+
     }
     
     func percentage(){
